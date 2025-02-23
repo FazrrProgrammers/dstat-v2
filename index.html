@@ -51,7 +51,7 @@
 <body>
     <div class="container">
         <h1>Request Counter</h1>
-        <p>Real-time request count</p>
+        <p>Real-time request count chart</p>
         <div id="chart-container"></div>
     </div>
     <script>
@@ -63,7 +63,7 @@
                     animation: Highcharts.svg,
                 },
                 title: {
-                    text: 'Requests per Second',
+                    text: 'Request Count per Second',
                     style: { color: 'white' }
                 },
                 xAxis: {
@@ -94,10 +94,10 @@
                         let y = data.requestCount;
                         chart.series[0].addPoint([x, y], true, chart.series[0].data.length > 20);
                     })
-                    .catch(err => console.error('Error fetching request count:', err));
+                    .catch(err => console.error("Fetch error:", err));
             }
 
-            setInterval(updateChart, 1000); // Update setiap 1 detik
+            setInterval(updateChart, 1000);
         });
     </script>
 </body>
